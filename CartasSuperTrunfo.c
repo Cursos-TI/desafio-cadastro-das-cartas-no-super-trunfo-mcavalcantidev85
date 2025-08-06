@@ -77,7 +77,7 @@ int main() {
      // forçada a saída em float, para melhor exatidão no resultado
     densidadePopulacional1 = (float) populacao1 / area1;
     // realizada a conversão do pib em bilhões, para ter um resultado mais exato.
-    pibPercapita1 = (pib2 * 1000000000) / populacao1;
+    pibPercapita1 = (pib1 * 1000000000) / populacao1;
 
      printf("\n");
 
