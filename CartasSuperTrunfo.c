@@ -7,31 +7,54 @@
 //Teste - Marcos Cavalcanti
 
 #include <stdio.h>
+/*
+Carta 1:
+Estado: A
+Código: A01
+Nome da Cidade: São Paulo
+População: 12.325000
+Área: 1521.11 km²
+PIB: 699.28 bilhões de reais
+Número de Pontos Turísticos: 50
 
+Carta 2:
+Estado: B
+Código: B02
+Nome da Cidade: Rio de Janeiro
+População: 6.748000
+Área: 1200.25 km²
+PIB: 300.50 bilhões de reais
+Número de Pontos Turísticos: 30    
+*/
 int main() {
     // Declaração das variáveis da Carta 1
-    char estado1;
-    char codigo1[4];
-    char nomeCidade1[100];
+    char estado1[3];
+    char codigo1[10];
+    char nomeCidade1[50];
     int populacao1;
     float area1;
     float pib1;
     int pontosTuristicos1;
+    float densidadePopulacional1;
+    float pibPercapita1;
 
     // Declaração das variáveis da Carta 2
-    char estado2;
-    char codigo2[4];
-    char nomeCidade2[100];
+    char estado2[3];
+    char codigo2[10];
+    char nomeCidade2[50];
     int populacao2;
     float area2;
     float pib2;
     int pontosTuristicos2;
+    float densidadePopulacional2;
+    float pibPercapita2;
+
 
     // Leitura dos dados da Carta 1
     printf("Cadastro da Carta 1\n");
 
     printf("Digite o estado (letra de A a H): ");
-    scanf(" %c", &estado1);
+    scanf("%c", estado1);
 
     printf("Digite o código da carta (ex: A01): ");
     scanf("%s", codigo1);
@@ -50,8 +73,13 @@ int main() {
 
     printf("Digite o número de pontos turísticos: ");
     scanf("%d", &pontosTuristicos1);
+    
+     // forçada a saída em float, para melhor exatidão no resultado
+    densidadePopulacional1 = (float) populacao1 / area1;
+    // realizada a conversão do pib em bilhões, para ter um resultado mais exato.
+    pibPercapita1 = (pib2 * 1000000000) / populacao1;
 
-    printf("\n");
+     printf("\n");
 
     // Leitura dos dados da Carta 2
     printf("Cadastro da Carta 2\n");
@@ -77,6 +105,11 @@ int main() {
     printf("Digite o número de pontos turísticos: ");
     scanf("%d", &pontosTuristicos2);
 
+    // forçada a saída em float, para melhor exatidão no resultado
+    densidadePopulacional2 = (float) populacao2 / area2;
+    // realizada a conversão do pib em bilhões, para ter um resultado mais exato.
+    pibPercapita2 = (pib2 * 1000000000) / populacao2;
+
     printf("\n");
 
     // Exibição das cartas cadastradas
@@ -88,6 +121,8 @@ int main() {
     printf("Área: %.2f km²\n", area1);
     printf("PIB: %.2f bilhões de reais\n", pib1);
     printf("Número de Pontos Turísticos: %d\n", pontosTuristicos1);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional1);
+    printf("PIB per Capita: %.2f reais\n", pibPercapita1);
 
     printf("\n");
 
@@ -99,6 +134,9 @@ int main() {
     printf("Área: %.2f km²\n", area2);
     printf("PIB: %.2f bilhões de reais\n", pib2);
     printf("Número de Pontos Turísticos: %d\n", pontosTuristicos2);
+    printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional2);
+    printf("PIB per Capita: %.2f reais\n", pibPercapita2);
+
 
     return 0;
 }
