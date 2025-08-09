@@ -31,23 +31,27 @@ int main() {
     char estado1[3];
     char codigo1[10];
     char nomeCidade1[50];
-    int populacao1;
+    unsigned int populacao1;
     float area1;
     float pib1;
     int pontosTuristicos1;
     float densidadePopulacional1;
     float pibPercapita1;
+    float superPoder1;
 
     // Declaração das variáveis da Carta 2
     char estado2[3];
     char codigo2[10];
     char nomeCidade2[50];
-    int populacao2;
+    unsigned int populacao2;
     float area2;
     float pib2;
     int pontosTuristicos2;
     float densidadePopulacional2;
     float pibPercapita2;
+    float superPoder2; 
+
+    int resultado; 
 
 
     // Leitura dos dados da Carta 1
@@ -136,6 +140,33 @@ int main() {
     printf("Número de Pontos Turísticos: %d\n", pontosTuristicos2);
     printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional2);
     printf("PIB per Capita: %.2f reais\n", pibPercapita2);
+
+    //Calculo dos superpoderes.
+    superPoder1 = populacao1 + area1 + pib1 + pontosTuristicos1 + pibPercapita1 + (1.0f / densidadePopulacional1);
+    superPoder2 = populacao2 + area2 + pib2 + pontosTuristicos2 + pibPercapita2 + (1.0f / densidadePopulacional2);
+
+    resultado = (populacao1 > populacao2) ? 1 : 2;
+    printf(" População: carta %d venceu\n", resultado);
+
+    resultado = (area1 > area2) ? 1 : 2;
+    printf(" Area: carta %d venceu\n", resultado);
+
+     resultado = (pib1 > pib2) ? 1 : 2;
+    printf("PIB: Carta %d venceu\n", resultado);
+
+    resultado = (pontosTuristicos1 > pontosTuristicos2) ? 1 : 2;
+    printf("Pontos Turísticos: Carta %d venceu\n", resultado);
+
+    resultado = (densidadePopulacional1 < densidadePopulacional2) ? 1 : 2; // menor densidade vence
+    printf("Densidade Populacional: Carta %d venceu\n", resultado);
+
+    resultado = (pibPercapita1 > pibPercapita2) ? 1 : 2;
+    printf("PIB per Capita: Carta %d venceu\n", resultado);
+
+    resultado = (superPoder1 > superPoder2) ? 1 : 2;
+    printf("Super Poder: Carta %d venceu\n", resultado);
+
+
 
 
     return 0;
